@@ -20,4 +20,5 @@ from portal.views import PortalAPIView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/portallist', PortalAPIView.as_view()),
+    path('api/v1/portallist/<int:pk>/', PortalAPIView.as_view()),
 ]
