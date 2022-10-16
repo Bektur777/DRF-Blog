@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from portal.views import PortalAPIView
+from portal.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/portallist', PortalAPIView.as_view()),
-    path('api/v1/portallist/<int:pk>/', PortalAPIView.as_view()),
+    path('api/v1/portallist', PortalListAPI.as_view()),
+    path('api/v1/portallist/<int:pk>/', PortalListAPI.as_view()),
 ]
