@@ -14,6 +14,16 @@ class PortalListAPI(generics.ListCreateAPIView):
     serializer_class = PortalSerializer
 
 
+class PortalAPIUpdate(generics.UpdateAPIView):
+    queryset = Portal.objects.all()
+    serializer_class = PortalSerializer
+
+
+class PortalAPIDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Portal.objects.all()
+    serializer_class = PortalSerializer
+
+
 # class PortalAPIView(APIView):
 #     def get(self, request):
 #         p = Portal.objects.all()

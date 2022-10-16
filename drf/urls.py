@@ -20,5 +20,6 @@ from portal.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/portallist', PortalListAPI.as_view()),
-    path('api/v1/portallist/<int:pk>/', PortalListAPI.as_view()),
+    path('api/v1/portallist/<int:pk>/', PortalAPIUpdate.as_view()),
+    path('api/v1/portaldetail/<int:pk>/', PortalAPIDetail.as_view()),
 ]
