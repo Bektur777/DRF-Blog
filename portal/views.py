@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import generics, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -9,17 +9,7 @@ from .serializers import PortalSerializer
 # Create your views here.
 
 
-class PortalListAPI(generics.ListCreateAPIView):
-    queryset = Portal.objects.all()
-    serializer_class = PortalSerializer
-
-
-class PortalAPIUpdate(generics.UpdateAPIView):
-    queryset = Portal.objects.all()
-    serializer_class = PortalSerializer
-
-
-class PortalAPIDetail(generics.RetrieveUpdateDestroyAPIView):
+class PortalModelViewSet(viewsets.ModelViewSet):
     queryset = Portal.objects.all()
     serializer_class = PortalSerializer
 
