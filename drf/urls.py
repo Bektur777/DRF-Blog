@@ -18,8 +18,9 @@ from django.urls import path, include
 from portal.views import *
 from rest_framework import routers
 
-router = routers.SimpleRouter()
+router = routers.DefaultRouter()
 router.register(r"portal", PortalModelViewSet)
+print(router.urls)
 
 
 urlpatterns = [

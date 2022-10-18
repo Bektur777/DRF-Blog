@@ -1,7 +1,6 @@
-from django.shortcuts import render
 from rest_framework import generics, viewsets
+from rest_framework.decorators import action
 from rest_framework.response import Response
-from rest_framework.views import APIView
 
 from .models import *
 from .serializers import PortalSerializer
@@ -13,6 +12,10 @@ class PortalModelViewSet(viewsets.ModelViewSet):
     queryset = Portal.objects.all()
     serializer_class = PortalSerializer
 
+    @action(methods="get", detail=False)
+    def category(self, request):
+        cats = Category.objects.all()
+        return Response({"cats": [i.name for i in cats]})
 
 # class PortalAPIView(APIView):
 #     def get(self, request):
