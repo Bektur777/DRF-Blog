@@ -1,6 +1,5 @@
+from django.contrib.auth.models import User
 from django.db import models
-
-# Create your models here.
 
 
 class Portal(models.Model):
@@ -10,6 +9,7 @@ class Portal(models.Model):
     time_update = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=True)
     cat = models.ForeignKey('Category', on_delete=models.PROTECT, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Пользователи")
 
     def __str__(self):
         return self.title
