@@ -20,7 +20,8 @@ from portal.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("api/v1/portallist", PortalAPIList.as_view()),
+    path("api/v1/drf-auth/", include("rest_framework.urls")),
+    path("api/v1/portallist/", PortalAPIList.as_view()),
     path("api/v1/portalupdate/<int:pk>", PortalAPIUpdate.as_view()),
     path("api/v1/portaldelete/<int:pk>", PortalAPIDestroy.as_view())
 ]
